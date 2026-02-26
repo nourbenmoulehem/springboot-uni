@@ -6,4 +6,5 @@ import tn.esprit.tp_4ever.Entities.Etudiant;
 
 @Repository
 public interface EtudiantRepo extends JpaRepository<Etudiant, Long> {
+    Etudiant getEtudiantsByIdEtudiant(Long idEtudiant);
 }

@@ -15,7 +15,7 @@ public class Foyer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idFoyer;
+    Integer idFoyer;
 
     String nomFoyer;
 
@@ -24,6 +24,6 @@ public class Foyer {
     @OneToOne(mappedBy = "foyer")
     Universite universite;
 
-    @OneToMany(mappedBy = "foyer")
+    @OneToMany(mappedBy = "foyer", fetch = FetchType.LAZY)
     Set<Bloc> blocs;
 }
