@@ -28,4 +28,10 @@ public class ReservationServiceImpl implements IReservationService {
     public Reservation retrieveReservation(long idReservation) {
         return null;
     }
+
+    @Override
+    public List<Reservation> getValidReservationsByYear(int annee) {
+        return reservationRepo.findValidReservationsByYear(annee);
+    }
+
 }

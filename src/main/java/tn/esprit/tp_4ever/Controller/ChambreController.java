@@ -60,5 +60,12 @@ public class ChambreController {
         return chambreService.getByNumeroChambreAndtype(numero, type);
     }
 
+    @GetMapping("/countByBloc/{idBloc}")
+    @Operation(description = "count chambres in a given bloc")
+    public long countChambresByBloc(@PathVariable int idBloc) {
+        return chambreService.countChambresByBloc(idBloc);
+    }
+
+
 
 }

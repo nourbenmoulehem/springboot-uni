@@ -51,4 +51,18 @@ public class FoyerController {
         return "Foyer with id " + id + " got deleted!";
     }
 
+    @Operation(description = "get foyer by its name")
+    @GetMapping("/getByNom")
+    public Foyer getFoyerByNom(@RequestParam String nom) {
+        return foyerService.getFoyerByNom(nom);
+    }
+
+    @Operation(description = "get foyer by name with capacity less than a value")
+    @GetMapping("/getByNomAndCapacite")
+    public List<Foyer> getFoyerByNomAndCapacite(@RequestParam String nom, @RequestParam Long capacite) {
+        return foyerService.getFoyerByNomAndCapaciteLessThan(nom, capacite);
+    }
+
+
+
 }

@@ -1,6 +1,8 @@
 package tn.esprit.tp_4ever.Controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_4ever.Entities.Reservation;
@@ -11,6 +13,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/reservation")
+@Tag(name = "Gestion Reservation api documentation")
 public class ReservationController {
 
     private IReservationService reservationService;
@@ -34,6 +37,13 @@ public class ReservationController {
     public Reservation getReservationById(@RequestParam long id) {
         return reservationService.retrieveReservation(id);
     }
+
+    @GetMapping("/getValidByYear")
+    @Operation(description = "get valid reservation by year")
+    public List<Reservation> getValidReservationsByYear(@RequestParam int annee) {
+        return reservationService.getValidReservationsByYear(annee);
+    }
+
 
 
 }

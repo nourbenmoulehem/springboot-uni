@@ -12,4 +12,5 @@ public interface IChambreService {
     Chambre retrieveChambre (long idChambre);
     void deleteChambre(long idChambre);
     List<Chambre> getByNumeroChambreAndtype(long numeroChambre, TypeChambre typeChambre);
-}
+
+    long countChambresByBloc(int idBloc);}

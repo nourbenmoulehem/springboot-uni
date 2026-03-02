@@ -46,5 +46,11 @@ public class ChambreServiceImpl implements IChambreService{
         return chambreRepo.findByNumeroChambreAndTypec(numeroChambre, typeChambre);
     }
 
+    @Override
+    public long countChambresByBloc(int idBloc) {
+        return chambreRepo.countByBlocIdBloc(idBloc);
+    }
+
+
 
 }

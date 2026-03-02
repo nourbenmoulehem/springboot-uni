@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tp_4ever.Entities.Etudiant;
 import tn.esprit.tp_4ever.Repositories.EtudiantRepo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -37,4 +38,10 @@ public class EtudiantServiceImpl implements IEtudiantService {
         etudiantRepo.deleteById(idEtudiant);
 
     }
+
+    @Override
+    public long countByDateNaissanceAfterAndEcole(LocalDate date, String ecole) {
+        return etudiantRepo.countByDateNaissanceAfterAndEcole(date, ecole);
+    }
+
 }

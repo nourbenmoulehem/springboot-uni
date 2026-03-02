@@ -11,5 +11,9 @@ import java.util.List;
 public interface FoyerRepo extends JpaRepository<Foyer, Integer> {
     Foyer getFoyerByIdFoyer(int idFoyer);
 
+    Foyer findByNomFoyer(String nomFoyer);
+
+    List<Foyer> findByNomFoyerAndCapaciteFoyerLessThan(String nomFoyer, Long capacite);
+
 
 }

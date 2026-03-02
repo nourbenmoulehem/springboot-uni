@@ -8,4 +8,6 @@ public interface IReservationService {
     List<Reservation> retrieveAllReservation();
     Reservation updateReservation (Reservation res);
     Reservation retrieveReservation (long idReservation);
+
+    List<Reservation> getValidReservationsByYear(int annee);
 }

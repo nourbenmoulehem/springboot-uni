@@ -15,4 +15,7 @@ public interface ChambreRepo extends JpaRepository<Chambre, Long> {
     List<Chambre> findByNumeroChambre(long numeroChambre);
 
     List<Chambre> findByNumeroChambreAndTypec(long numeroChambre, TypeChambre typec);
+
+    long countByBlocIdBloc(int idBloc);
+
 }

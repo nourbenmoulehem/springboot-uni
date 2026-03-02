@@ -12,4 +12,8 @@ public interface IFoyerService {
     Foyer retrieveFoyer (int idFoyer);
     void removeFoyer (int idFoyer);
 
+    Foyer getFoyerByNom(String nomFoyer);
+
+    List<Foyer> getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite);
+
 }

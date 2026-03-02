@@ -4,6 +4,9 @@ import tn.esprit.tp_4ever.Entities.Etudiant;
 
 import java.util.List;
 
+import java.time.LocalDate;
+
+
 
 public interface IEtudiantService {
     List<Etudiant> retrieveAllEtudiants();
@@ -11,5 +14,7 @@ public interface IEtudiantService {
     Etudiant updateEtudiant (Etudiant e);
     Etudiant retrieveEtudiant(long idEtudiant);
     void removeEtudiant(long idEtudiant);
+
+    long countByDateNaissanceAfterAndEcole(LocalDate date, String ecole);
 
 }
