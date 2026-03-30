@@ -59,7 +59,7 @@ public class FoyerController {
 
     @Operation(description = "get foyer by name with capacity less than a value")
     @GetMapping("/getByNomAndCapacite")
-    public List<Foyer> getFoyerByNomAndCapacite(@RequestParam String nom, @RequestParam Long capacite) {
+    public Foyer getFoyerByNomAndCapacite(@RequestParam String nom, @RequestParam Long capacite) {
         return foyerService.getFoyerByNomAndCapaciteLessThan(nom, capacite);
     }
 

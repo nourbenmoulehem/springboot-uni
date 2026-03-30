@@ -14,6 +14,6 @@ public interface IFoyerService {
 
     Foyer getFoyerByNom(String nomFoyer);
 
-    List<Foyer> getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite);
+    Foyer getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite);
 
 }

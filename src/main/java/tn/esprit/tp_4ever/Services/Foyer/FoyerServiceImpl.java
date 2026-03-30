@@ -44,7 +44,7 @@ public class FoyerServiceImpl implements IFoyerService {
     }
 
     @Override
-    public List<Foyer> getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite) {
+    public Foyer getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite) {
         return foyerRepo.findByNomFoyerAndCapaciteFoyerLessThan(nomFoyer, capacite);
     }
 
