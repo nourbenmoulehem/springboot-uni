@@ -63,6 +63,12 @@ public class FoyerController {
         return foyerService.getFoyerByNomAndCapaciteLessThan(nom, capacite);
     }
 
+    @Operation(description = "ajouter à la fois un Foyer ses blocs associés et l’affecter à une université donnée.")
+    @PostMapping("/ajouterFoyerBlocs")
+    public Foyer ajouterFoyerBlocs(@RequestBody Foyer foyer, @RequestParam long idUniversite) {
+        return foyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+    }
+
 
 
 }

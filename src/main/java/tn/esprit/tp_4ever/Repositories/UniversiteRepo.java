@@ -8,4 +8,8 @@ import tn.esprit.tp_4ever.Entities.Universite;
 @Repository
 public interface UniversiteRepo extends JpaRepository<Universite, Long> {
     Universite getUniversiteByIdUniversite(long idUniversite);
+
+    Universite findUniversiteByNomUniversite(String nomUniversite);
+
+    Universite findUniversiteByIdUniversite(long idUniversite);
 }

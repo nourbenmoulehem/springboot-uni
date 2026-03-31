@@ -17,7 +17,7 @@ public class Bloc {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idBloc;
+    Integer idBloc;
 
     String nomBloc;
 

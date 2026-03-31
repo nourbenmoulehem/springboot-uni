@@ -20,10 +20,14 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idReservation;
 
+    String numReservation;
+
     LocalDate anneeUniversitaire;
 
     boolean estValide;
 
     @ManyToMany
     Set<Etudiant> etudiants;
+
+
 }

@@ -6,11 +6,12 @@ import tn.esprit.tp_4ever.Entities.Chambre;
 import tn.esprit.tp_4ever.Entities.TypeChambre;
 import tn.esprit.tp_4ever.Repositories.ChambreRepo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ChambreServiceImpl implements IChambreService{
+public class ChambreServiceImpl implements IChambreService {
 
     private ChambreRepo chambreRepo;
 
@@ -36,9 +37,7 @@ public class ChambreServiceImpl implements IChambreService{
 
     @Override
     public void deleteChambre(long idChambre) {
-
         chambreRepo.deleteById(idChambre);
-
     }
 
     @Override
@@ -51,6 +50,25 @@ public class ChambreServiceImpl implements IChambreService{
         return chambreRepo.countByBlocIdBloc(idBloc);
     }
 
+    @Override
+    public List<Chambre> getChambresParNomUniversite(String nomUniversite) {
+        return chambreRepo.findByBlocFoyerUniversiteNomUniversite(nomUniversite);
+    }
 
+    @Override
+    public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
+        return chambreRepo.findChambresParBlocEtTypeJPQL(idBloc, typeC);
+    }
+
+    @Override
+    public List<Chambre> getChambresParBlocEtTypeKeyword(long idBloc, TypeChambre typeC) {
+        return chambreRepo.findByBlocIdBlocAndTypec(idBloc, typeC);
+    }
+
+    @Override
+    public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type) {
+        int anneeActuelle = LocalDate.now().getYear();
+        return chambreRepo.findChambresNonReservees(nomUniversite, type, anneeActuelle);
+    }
 
 }

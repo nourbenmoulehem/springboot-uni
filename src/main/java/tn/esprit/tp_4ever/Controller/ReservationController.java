@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_4ever.Entities.Reservation;
 import tn.esprit.tp_4ever.Services.Reservation.IReservationService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -44,6 +45,22 @@ public class ReservationController {
         return reservationService.getValidReservationsByYear(annee);
     }
 
+    @PostMapping("/ajouterReservation/{idBloc}/{cinEtudiant}")
+    public Reservation ajouterReservation(@PathVariable long idBloc,
+                                          @PathVariable long cinEtudiant) {
+        return reservationService.ajouterReservation(idBloc, cinEtudiant);
+    }
 
+    @GetMapping("/getByAnneeAndUniversite/{nomUniversite}")
+    @Operation(description = "get reservations by academic year and university name")
+    public List<Reservation> getReservationsParAnneeEtUniversite(
+
+            @RequestParam String anneeUniversite,
+            @PathVariable String nomUniversite
+
+    ) {
+        LocalDate date = LocalDate.parse(anneeUniversite);
+        return reservationService.getReservationParAnneeUniversitaireEtNomUniversite(date, nomUniversite);
+    }
 
 }

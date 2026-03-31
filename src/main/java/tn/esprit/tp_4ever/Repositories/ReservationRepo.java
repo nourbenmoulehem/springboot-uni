@@ -19,4 +19,8 @@ public interface ReservationRepo extends JpaRepository<Reservation, Long> {
     List<Reservation> findValidReservationsByYear(@Param("annee") int annee);
 
     List<Reservation> findByAnneeUniversitaireAndEstValide(LocalDate annee, boolean valide);
+
+    @Query("SELECT DISTINCT r FROM Chambre c JOIN c.reservations r WHERE c.bloc.foyer.universite.nomUniversite = :nomUniversite AND YEAR(r.anneeUniversitaire) = YEAR(:anneeUniversite)")
+    List<Reservation> findReservationsParAnneeEtUniversite(@Param("anneeUniversite") LocalDate anneeUniversite, @Param("nomUniversite") String nomUniversite);
+
 }

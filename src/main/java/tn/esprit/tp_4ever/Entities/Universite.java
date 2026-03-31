@@ -15,13 +15,13 @@ public class Universite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idUniversite;
+    Integer idUniversite;
 
     String nomUniversite;
 
     String adresse;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     Foyer foyer;
 
 

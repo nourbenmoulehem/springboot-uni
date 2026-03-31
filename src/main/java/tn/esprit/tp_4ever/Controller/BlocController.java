@@ -41,4 +41,9 @@ public class BlocController {
         return "Bloc deleted!";
     }
 
+    @PostMapping("/affecterChambres")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numChambre, @RequestParam long idBloc) {
+        return blocService.affecterChambresABloc(numChambre, idBloc);
+    }
+
 }

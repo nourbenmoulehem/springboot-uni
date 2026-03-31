@@ -16,4 +16,6 @@ public interface IFoyerService {
 
     Foyer getFoyerByNomAndCapaciteLessThan(String nomFoyer, Long capacite);
 
+    public Foyer ajouterFoyerEtAffecterAUniversite (Foyer foyer, long idUniversite) ;
+
 }

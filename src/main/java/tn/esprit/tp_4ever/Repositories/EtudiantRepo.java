@@ -11,4 +11,8 @@ public interface EtudiantRepo extends JpaRepository<Etudiant, Long> {
     Etudiant getEtudiantsByIdEtudiant(Long idEtudiant);
 
     long countByDateNaissanceAfterAndEcole(LocalDate date, String ecole);
+
+    Etudiant findEtudiantByCin(Long cin);
+
+    Long cin(Long cin);
 }

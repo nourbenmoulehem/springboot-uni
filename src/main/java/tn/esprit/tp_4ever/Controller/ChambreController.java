@@ -66,6 +66,28 @@ public class ChambreController {
         return chambreService.countChambresByBloc(idBloc);
     }
 
+    @GetMapping("/getByUniversite/{nomUniversite}")
+    @Operation(description = "get all chambres of a university by its name")
+    public List<Chambre> getChambresParNomUniversite(@PathVariable String nomUniversite) {
+        return chambreService.getChambresParNomUniversite(nomUniversite);
+    }
 
+    @GetMapping("/getByBlocAndType/jpql/{idBloc}/{typeC}")
+    @Operation(description = "get chambres by bloc and type using JPQL")
+    public List<Chambre> getChambresParBlocEtTypeJPQL(@PathVariable long idBloc, @PathVariable TypeChambre typeC) {
+        return chambreService.getChambresParBlocEtType(idBloc, typeC);
+    }
+
+    @GetMapping("/getByBlocAndType/keyword/{idBloc}/{typeC}")
+    @Operation(description = "get chambres by bloc and type using Keywords")
+    public List<Chambre> getChambresParBlocEtTypeKeyword(@PathVariable long idBloc, @PathVariable TypeChambre typeC) {
+        return chambreService.getChambresParBlocEtTypeKeyword(idBloc, typeC);
+    }
+
+    @GetMapping("/getNonReservees/{nomUniversite}/{type}")
+    @Operation(description = "get non reserved chambres by university name and type for current year")
+    public List<Chambre> getChambresNonReservees(@PathVariable String nomUniversite, @PathVariable TypeChambre type) {
+        return chambreService.getChambresNonReserveParNomUniversiteEtTypeChambre(nomUniversite, type);
+    }
 
 }
